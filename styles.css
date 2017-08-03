@@ -8,16 +8,19 @@ header{
   padding-bottom: 10px;
 }
 
-.people-title{
+.people-title {
   margin: 0;
+  font-size: 34px;
 }
 
 .people--list {
-  padding: 50px;
+  padding: 30px 0;
 }
 
 .people--list ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .people--logo {
@@ -27,19 +30,19 @@ header{
 
 .people--pic {
   border-radius: 100%;
-  width: 250px;
+  width: 150px;
 }
 
 .people--name {
   text-transform: capitalize;
-  font-size: 40px;
-  margin-top: 50px;
+  font-size: 30px;
+  margin-top: 10px;
   display: block;
 }
 
 .people--email {
-  font-size: 20px;
-  margin-top: 30px;
+  font-size: 15px;
+  margin-top: 10px;
   display: block;
 }
 
@@ -47,10 +50,12 @@ header{
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
   margin-bottom: 10px;
 }
 
 .btn-section .btn {
   width: 30%;
+  padding-right: 5px;
+  padding-left: 5px;
 }
