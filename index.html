@@ -24,7 +24,7 @@
         Find Male
       </button>
       <button id="btn-find-random" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        Random
+        Whatever
       </button>
       <hr />
       <div class="people--list">
@@ -59,7 +59,6 @@
           url: 'https://randomuser.me/api/?gender=' + gender,
           dataType: 'json',
           success: function(data) {
-            console.log(data);
             document.getElementById('picture').src = data.results[0].picture.large
             document.getElementById('firstName').textContent = data.results[0].name.first
             document.getElementById('email').textContent = data.results[0].email
