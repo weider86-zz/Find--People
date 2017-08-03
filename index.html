@@ -2,6 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
     <title>Find People - Beta - A Progressive Web App project.</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" type="image/png" href="/favicon.png">
@@ -13,20 +14,22 @@
   </head>
   <body>
     <div class="app">
-      <img src="images/logo-people.png" class="people--logo" />
-      <h1>Find People</h1>
-      <h6>A Progressive Web App project.</h6>
-      <hr />
-      <button id="btn-find-female" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        Find Female
-      </button>
-      <button id="btn-find-male" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        Find Male
-      </button>
-      <button id="btn-find-random" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        Whatever
-      </button>
-      <hr />
+      <header>
+        <img src="images/logo-people.png" class="people--logo" />
+        <h1 class="people-title">Find People</h1>
+        <p>A Progressive Web App project.</p>
+      </header>
+      <div class="btn-section">
+        <button id="btn-find-female" class="btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Find Female
+        </button>
+        <button id="btn-find-male" class="btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Find Male
+        </button>
+        <button id="btn-find-random" class="btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Whatever
+        </button>
+      </div>
       <div class="people--list">
         <ul>
           <li>
@@ -41,32 +44,11 @@
         </ul>
       </div>
     </div>
-    <!-- -->
+    <!-- JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/app.js"></script>
     <script>
-      $('#btn-find-female').on('click', function(){
-        findPeople('female');
-      });
-      $('#btn-find-male').on('click', function(){
-        findPeople('male');
-      });
-      $('#btn-find-random').on('click', function(){
-        findPeople('random');
-      });
-
-      function findPeople(gender){
-        $.ajax({
-          url: 'https://randomuser.me/api/?gender=' + gender,
-          dataType: 'json',
-          success: function(data) {
-            document.getElementById('picture').src = data.results[0].picture.large
-            document.getElementById('firstName').textContent = data.results[0].name.first
-            document.getElementById('email').textContent = data.results[0].email
-          }
-        });
-      }
-    </script>
-    <script>
+    /*
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js')
       .then(function () {
@@ -76,6 +58,7 @@
         console.warn('service worker failed');
       });
     }
+    */
     </script>
   </body>
   </html>

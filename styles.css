@@ -1,9 +1,19 @@
 body {
   text-align: center;
+  background-color: #f1f1f1;
+}
+
+header{
+  background-color: #fff;
+  padding-bottom: 10px;
+}
+
+.people-title{
+  margin: 0;
 }
 
 .people--list {
-
+  padding: 50px;
 }
 
 .people--list ul {
@@ -17,8 +27,30 @@ body {
 
 .people--pic {
   border-radius: 100%;
+  width: 250px;
 }
 
 .people--name {
   text-transform: capitalize;
+  font-size: 40px;
+  margin-top: 50px;
+  display: block;
+}
+
+.people--email {
+  font-size: 20px;
+  margin-top: 30px;
+  display: block;
+}
+
+.btn-section {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-section .btn {
+  width: 30%;
 }
