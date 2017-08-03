@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>People - Find People - PWA</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  <body>
+    <img src="images/logo-people.png" class="people--logo" />
+    <h1>Find People</h1>
+    <h6>A Progressive Web App project</h6>
+    <hr />
+    <button id="btn-find-female" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+      Find Female
+    </button>
+    <button id="btn-find-male" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+      Find Male
+    </button>
+    <button id="btn-find-random" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+      Find Random
+    </button>
+    <hr />
+    <div class="people--list">
+      <ul>
+        <li>
+          <img id="picture" class="people--pic" />
+        </li>
+        <li>
+          <strong id="firstName" class="people--name"></strong>
+        </li>
+        <li>
+          <small id="email" class="people--email"></small>
+        </li>
+      </ul>
+    </div>
+    <!-- -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $('#btn-find-female').on('click', function(){
+        findPeople('female');
+      });
+      $('#btn-find-male').on('click', function(){
+        findPeople('male');
+      });
+      $('#btn-find-random').on('click', function(){
+        findPeople('random');
+      });
+
+      function findPeople(gender){
+        $.ajax({
+          url: 'https://randomuser.me/api/?gender=' + gender,
+          dataType: 'json',
+          success: function(data) {
+            console.log(data);
+            document.getElementById('picture').src = data.results[0].picture.large
+            document.getElementById('firstName').textContent = data.results[0].name.first
+            document.getElementById('email').textContent = data.results[0].email
+          }
+        });
+      }
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/People/sw.js')
+      .then(function () {
+        console.log('service worker registered');
+      })
+      .catch(function () {
+        console.warn('service worker failed');
+      });
+    }
+    </script>
+  </body>
+  </html>
