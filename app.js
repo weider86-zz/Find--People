@@ -37,5 +37,6 @@ function notify() {
 
 (function(){
 	'use strict'
-  setInterval(function(){  notify(); }, 10000);
+  //setInterval(function(){  notify(); }, 10000);
+  notify();
 })()
