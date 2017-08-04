@@ -10,6 +10,7 @@ self.addEventListener('install', function (event) {
         '/app.js',
         '/manifest.js',
         '/vendor.js',
+        '/images/logo-people.png',
       ]);
     })
   )

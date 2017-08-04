@@ -21,3 +21,21 @@ function findPeople(gender){
     }
   });
 }
+
+
+function notify() {
+    Notification.requestPermission(function() {
+        var notification = new Notification("Nova mensagem!", {
+            icon: 'images/logo-people.png',
+            body: "Marina Rui Barbosa chamou para conversar!"
+        });
+        notification.onclick = function() {
+            window.open("http://www.icarros.com.br");
+        }
+    });
+}
+
+(function(){
+	'use strict'
+  setInterval(function(){  notify(); }, 10000);
+})()
