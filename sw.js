@@ -9,8 +9,7 @@ self.addEventListener('install', function (event) {
         '/styles.css',
         '/app.js',
         '/manifest.js',
-        '/vendor.js',
-        '/images/logo-people.png',
+        '/vendor.js'
       ]);
     })
   )
