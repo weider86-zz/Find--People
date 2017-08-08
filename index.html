@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find People - Beta - A Progressive Web App project.</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" type="image/png" href="/favicon.png">
@@ -17,7 +17,7 @@
       <header>
         <img src="images/logo-people.png" class="people--logo" />
         <h1 class="people-title">Find People</h1>
-        <p>A Progressive Web App project.</p>
+        <p>A progressive web app project.</p>
       </header>
       <div class="btn-section">
         <button id="btn-find-female" class="btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
@@ -50,14 +50,7 @@
     <script>
       if('serviceWorker' in navigator) {
         navigator.serviceWorker
-          .register('sw.js', { scope: './'})
-          Notification.requestPermission(function(result) {
-            if (result === 'granted') {
-              navigator.serviceWorker.ready.then(function(registration) {
-                registration.showNotification('Marina Rui Barbosa send you a message!');
-              });
-            }
-          });
+          .register('sw.js')
           .then(function(registration) {
             console.log('ServiceWorker registration successful with scope: ', registration.scope)
           })

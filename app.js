@@ -24,19 +24,32 @@ function findPeople(gender){
 
 
 function notify() {
-    Notification.requestPermission(function() {
-        var notification = new Notification("Nova mensagem!", {
-            icon: 'images/logo-people.png',
-            body: "Marina Rui Barbosa chamou para conversar!"
-        });
-        notification.onclick = function() {
-            window.open("http://www.icarros.com.br");
-        }
+  Notification.requestPermission(function(result) {
+    var notification = new Notification("Nova mensagem!", {
+      icon: 'images/logo-people.png',
+      body: "Marina Rui Barbosa chamou para conversar!"
     });
+    notification.onclick = function() {
+      window.open("http://www.icarros.com.br");
+    }
+  });
 }
 
+
+/*
+Notification.requestPermission(function(result) {
+  if (result === 'granted') {
+    navigator.serviceWorker.ready.then(function(registration) {
+      registration.showNotification('Marina Rui Barbosa send you a message!');
+    });
+  }
+});
+*/
+
 (function(){
-	'use strict'
-  //setInterval(function(){  notify(); }, 10000);
-  //notify();
+  'use strict'
+  notify();
+  setInterval(function(){
+    notify();
+  }, 30000);
 })()
