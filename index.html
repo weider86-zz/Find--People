@@ -48,25 +48,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/app.js"></script>
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-        .then(function () {
-          console.log('service worker registered');
-        })
-        .catch(function () {
-          console.warn('service worker failed');
-        });
-      }
-
-      //
-      navigator.serviceWorker.register('sw.js');
-      Notification.requestPermission(function(result) {
-        if (result === 'granted') {
-          navigator.serviceWorker.ready.then(function(registration) {
-            registration.showNotification('Notification with ServiceWorker');
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('sw.js', { scope: './'})
+          Notification.requestPermission(function(result) {
+            if (result === 'granted') {
+              navigator.serviceWorker.ready.then(function(registration) {
+                registration.showNotification('Marina Rui Barbosa send you a message!');
+              });
+            }
           });
-        }
-      });
+          .then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope)
+          })
+          .catch(function(error) {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      }
     </script>
   </body>
   </html>
