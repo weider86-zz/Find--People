@@ -22,7 +22,6 @@ function findPeople(gender){
   });
 }
 
-
 function notify() {
   Notification.requestPermission(function(result) {
     var notification = new Notification("Nova mensagem!", {
@@ -34,17 +33,6 @@ function notify() {
     }
   });
 }
-
-
-/*
-Notification.requestPermission(function(result) {
-  if (result === 'granted') {
-    navigator.serviceWorker.ready.then(function(registration) {
-      registration.showNotification('Marina Rui Barbosa send you a message!');
-    });
-  }
-});
-*/
 
 (function(){
   'use strict'
