@@ -39,5 +39,5 @@ function notify() {
   notify();
   setInterval(function(){
     notify();
-  }, 60000);
+  }, 1000000);
 })()

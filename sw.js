@@ -12,8 +12,7 @@ self.addEventListener('install', function (event) {
         'manifest.js',
         'vendor.js',
         '/images/icon-72x72.png',
-        '/images/logo-people.png',
-        'https://randomuser.me/api/'
+        '/images/logo-people.png'
       ]);
     })
   )
